@@ -1,10 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: FireLord.Utils.ReflectionUtil
-// Assembly: FireLord, Version=1.1.3.0, Culture=neutral, PublicKeyToken=null
-// MVID: 51633F12-6A5F-46B9-B9AF-55B0B570B321
-// Assembly location: C:\Users\andre\Documents\FireLord.dll
-
-using System;
+﻿using System;
 using System.Reflection;
 
 namespace FireLord.Utils
@@ -15,7 +9,7 @@ namespace FireLord.Utils
 
         public static T GetPrivateField<T>(this object obj, string fieldName) => (T)obj.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic).GetValue(obj);
 
-        public static void SetPrivateProperty(this object obj, string propertyName, object value) => obj.GetType().GetProperty(propertyName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).SetValue(obj, value, (object[])null);
+        public static void SetPrivateProperty(this object obj, string propertyName, object value) => obj.GetType().GetProperty(propertyName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).SetValue(obj, value, null);
 
         public static void InvokePrivateMethod(
           this object obj,
@@ -30,7 +24,7 @@ namespace FireLord.Utils
           string methodName,
           object[] methodParams)
         {
-            type.InvokeMember(methodName, BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.InvokeMethod, (Binder)null, (object)null, methodParams);
+            type.InvokeMember(methodName, BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.InvokeMethod, null, null, methodParams);
         }
     }
 }

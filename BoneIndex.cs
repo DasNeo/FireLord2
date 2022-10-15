@@ -1,10 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: FireLord.BoneIndex
-// Assembly: FireLord, Version=1.1.3.0, Culture=neutral, PublicKeyToken=null
-// MVID: 51633F12-6A5F-46B9-B9AF-55B0B570B321
-// Assembly location: C:\Users\andre\Documents\FireLord.dll
-
-namespace FireLord
+﻿namespace FireLord
 {
     public enum BoneIndex
     {
