@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
+using System.Security;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.InputSystem;
@@ -134,16 +136,22 @@ namespace FireLord
                 SetFireSwordEnable(false);
             }
 
+            [HandleProcessCorruptedStateExceptions]
+            [SecurityCritical]
             public void SetFireSwordEnable(bool enable)
             {
                 if (agent == null)
                     return;
                 if (enable)
                 {
+                    if (agent.State == AgentState.Routed)
+                        return;
+
                     SetFireSwordEnable(false);
                     EquipmentIndex wieldedItemIndex = agent.GetWieldedItemIndex(0);
                     if (wieldedItemIndex == EquipmentIndex.None)
                         return;
+
                     GameEntity fromEquipmentSlot = agent.GetWeaponEntityFromEquipmentSlot(wieldedItemIndex);
                     MissionWeapon wieldedWeapon = agent.WieldedWeapon;
                     if (wieldedWeapon.IsEmpty)
