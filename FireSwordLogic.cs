@@ -136,8 +136,6 @@ namespace FireLord
                 SetFireSwordEnable(false);
             }
 
-            [HandleProcessCorruptedStateExceptions]
-            [SecurityCritical]
             public void SetFireSwordEnable(bool enable)
             {
                 if (agent == null)
