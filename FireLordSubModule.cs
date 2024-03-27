@@ -1,8 +1,7 @@
 ﻿using BUTR.DependencyInjection.Extensions;
 using FireLord.Settings;
 using FireLord.Settings.MCM;
-using MCM.Extensions;
-using MCM.Implementation.Settings.Formats.Xml;
+using MCM.Internal.Extensions;
 using TaleWorlds.MountAndBlade;
 
 namespace FireLord

@@ -224,7 +224,7 @@ namespace FireLord
                         int boneCount = skeleton.GetBoneCount();
                         for (sbyte index = 0; index < boneCount; ++index)
                         {
-                            MatrixFrame matrixFrame7 = new MatrixFrame(Mat3.Identity, new Vec3(0, 0, 0)).Elevate(index * 0.1f);
+                            MatrixFrame matrixFrame7 = new MatrixFrame(Mat3.Identity, new Vec3(0, 0, 0)).Elevate(.2f);
                             ParticleSystem attachedToEntity = ParticleSystem.CreateParticleSystemAttachedToEntity("psys_game_burning_agent", fromEquipmentSlot, ref matrixFrame7);
                             skeleton.AddComponentToBone(index, attachedToEntity);
                         }

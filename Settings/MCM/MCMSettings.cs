@@ -1,5 +1,4 @@
-﻿using MCM.Abstractions.Settings.Base.Global;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +7,10 @@ using static FireLord.Settings.FireLordConfig;
 using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 using MCM.Abstractions.Attributes.v1;
-using MCM.Abstractions.Dropdown;
 using TaleWorlds.CampaignSystem;
 using MCM.Abstractions.Attributes;
+using MCM.Abstractions.Base.Global;
+using MCM.Common;
 
 namespace FireLord.Settings.MCM
 {
@@ -32,7 +32,7 @@ namespace FireLord.Settings.MCM
         public bool ignitePlayerBody { get; set; } = false;
         [SettingProperty("Allowed Unit Types", RequireRestart = false, HintText = "Enable Fire Sword for a group of characters")]
         [SettingPropertyGroup("Fire Sword")]
-        public DropdownDefault<string> fireSwordAllowedUnitType { get; set; } = new DropdownDefault<string>(new string[]
+        public Dropdown<string> fireSwordAllowedUnitType { get; set; } = new Dropdown<string>(new string[]
         {
             "None",
             "Player",
@@ -44,7 +44,7 @@ namespace FireLord.Settings.MCM
         }, 1);
         [SettingProperty("Fire Sword Whitelist Type", HintText = "When set to 0 everyone gets Fire Sword. On 1 only specified Troops get them. On 2 only specified Items get them.", RequireRestart = false)]
         [SettingPropertyGroup("Fire Sword")]
-        public DropdownDefault<string> fireSwordWhitelistType { get; set; } = new DropdownDefault<string>(new string[]
+        public Dropdown<string> fireSwordWhitelistType { get; set; } = new Dropdown<string>(new string[]
         {
             "Disabled",
             "Troops",
@@ -69,12 +69,12 @@ namespace FireLord.Settings.MCM
         [SettingPropertyGroup("Fire Sword/Fire Sword Light/Color")]
         public int fireSwordLightColorB { get; set; } = 0;
 
-        [SettingProperty("Fire Sword Light Radius", 0, 255, RequireRestart = false)]
+        [SettingProperty("Fire Sword Light Radius", 0, 20, RequireRestart = false)]
         [SettingPropertyGroup("Fire Sword/Fire Sword Light")]
         public float fireSwordLightRadius { get; set; } = 5f;
-        [SettingProperty("Fire Sword Light Intensity", 0, 255, RequireRestart = false)]
+        [SettingProperty("Fire Sword Light Intensity", 0, 10, RequireRestart = false)]
         [SettingPropertyGroup("Fire Sword/Fire Sword Light")]
-        public float fireSwordLightIntensity { get; set; } = 85f;
+        public float fireSwordLightIntensity { get; set; } = 4f;
         [SettingProperty("Fire Sword ignites Target", RequireRestart = false)]
         [SettingPropertyGroup("Fire Sword/Ignition")]
         public bool igniteTargetWithFireSword { get; set; } = true;
@@ -99,12 +99,12 @@ namespace FireLord.Settings.MCM
         [SettingProperty("Ignition Light Color Blue", 0, 255, RequireRestart = false)]
         [SettingPropertyGroup("Fire Sword/Ignition/Light/Color")]
         public int ignitionLightColorB { get; set; } = 0;
-        [SettingProperty("Ignition Light Radius", 0, 255, RequireRestart = false)]
+        [SettingProperty("Ignition Light Radius", 0, 20, RequireRestart = false)]
         [SettingPropertyGroup("Fire Sword/Ignition/Light")]
         public float ignitionLightRadius { get; set; } = 7f;
-        [SettingProperty("Ignition Light Intensity", 0, 255, RequireRestart = false)]
+        [SettingProperty("Ignition Light Intensity", 0, 10, RequireRestart = false)]
         [SettingPropertyGroup("Fire Sword/Ignition/Light")]
-        public float ignitionLightIntensity { get; set; } = 125f;
+        public float ignitionLightIntensity { get; set; } = 4f;
         [SettingProperty("Ignition deals damage", RequireRestart = false)]
         [SettingPropertyGroup("Fire Sword/Ignition")]
         public bool ignitionDealDamage { get; set; } = true;

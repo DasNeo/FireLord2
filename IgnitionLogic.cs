@@ -171,8 +171,8 @@ namespace FireLord
             blow.BlowFlag = BlowFlags.ShrugOff;
             blow.BlowFlag |= BlowFlags.NoSound;
             blow.BoneIndex = victim.Monster.HeadLookDirectionBoneIndex;
-            blow.Position = victim.Position;
-            blow.Position.z = blow.Position.z + victim.GetEyeGlobalHeight();
+            blow.GlobalPosition = victim.Position;
+            blow.GlobalPosition.z = blow.GlobalPosition.z + victim.GetEyeGlobalHeight();
             blow.BaseMagnitude = 0;
             blow.WeaponRecord.FillAsMeleeBlow(null, null, -1, -1);
             blow.InflictedDamage = FireLordConfig.IgnitionDamagePerSecond;
